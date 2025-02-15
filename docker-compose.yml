@@ -1,0 +1,41 @@
+services:
+  # Api
+  visiotech.vineyardmanagementservice.api:
+    image: ${DOCKER_REGISTRY-}visiotechvineyardmanagementserviceapi
+    build:
+      context: .
+      dockerfile: src/Visiotech.VineyardManagementService.Api/Dockerfile
+    depends_on:
+      - sql-server
+      - redis
+
+  # SQL SERVER
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: NuevaContra123#
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./data/sqlserver:/var/opt/mssql
+
+  # REDIS
+  redis:
+     image: redis:latest
+     restart: always
+     ports:
+       - '6379:6379'
+     volumes:
+       - ./data/redis:/data
+
+  # VISOR DE REDIS
+  redis-insight:
+    image: redislabs/redisinsight:1.14.0
+    restart: always
+    ports:
+      - "8001:8001"
+    volumes:
+       - ./data/redis-insight:/db
+    depends_on:
+      - redis
