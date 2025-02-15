@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{918B1C96-E940-43BE-9F80-EF3354F24AB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{28E3DADD-B86D-47A6-807A-D5BDE6CD5387}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D130A763-F685-400E-9A14-DE1BB86FDF57}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		global.json = global.json
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visiotech.VineyardManagementService.Domain", "src\Visiotech.VineyardManagementService.Domain\Visiotech.VineyardManagementService.Domain.csproj", "{896B293C-57BE-4201-89F8-18CA399DFF21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visiotech.VineyardManagementService.Application", "src\Visiotech.VineyardManagementService.Application\Visiotech.VineyardManagementService.Application.csproj", "{BEAA853E-33C4-420A-B147-0AC121AC5B08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visiotech.VineyardManagementService.Infrastructure", "src\Visiotech.VineyardManagementService.Infrastructure\Visiotech.VineyardManagementService.Infrastructure.csproj", "{5F0472CE-1337-42BC-A9F9-755C40184DB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visiotech.VineyardManagementService.Api", "src\Visiotech.VineyardManagementService.Api\Visiotech.VineyardManagementService.Api.csproj", "{B57C57DB-5E47-4216-ABB6-3C5ED9E52AA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visiotech.VineyardManagementService.Application.IntegrationTests", "tests\Visiotech.VineyardManagementService.Application.IntegrationTests\Visiotech.VineyardManagementService.Application.IntegrationTests.csproj", "{5F45AA6B-926B-4009-8456-465F7B6AB187}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visiotech.VineyardManagementService.Domain.UnitTests", "tests\Visiotech.VineyardManagementService.Domain.UnitTests\Visiotech.VineyardManagementService.Domain.UnitTests.csproj", "{601C3170-C6D6-4EC0-AB26-BB48E6A2A421}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visiotech.VineyardManagementService.Api.IntegrationTests", "tests\Visiotech.VineyardManagementService.Api.IntegrationTests\Visiotech.VineyardManagementService.Api.IntegrationTests.csproj", "{8ACAD8E4-896A-4EDF-9191-1D0BD94A3880}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{896B293C-57BE-4201-89F8-18CA399DFF21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{896B293C-57BE-4201-89F8-18CA399DFF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{896B293C-57BE-4201-89F8-18CA399DFF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{896B293C-57BE-4201-89F8-18CA399DFF21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEAA853E-33C4-420A-B147-0AC121AC5B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEAA853E-33C4-420A-B147-0AC121AC5B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEAA853E-33C4-420A-B147-0AC121AC5B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEAA853E-33C4-420A-B147-0AC121AC5B08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F0472CE-1337-42BC-A9F9-755C40184DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F0472CE-1337-42BC-A9F9-755C40184DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F0472CE-1337-42BC-A9F9-755C40184DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F0472CE-1337-42BC-A9F9-755C40184DB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B57C57DB-5E47-4216-ABB6-3C5ED9E52AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57C57DB-5E47-4216-ABB6-3C5ED9E52AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57C57DB-5E47-4216-ABB6-3C5ED9E52AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57C57DB-5E47-4216-ABB6-3C5ED9E52AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F45AA6B-926B-4009-8456-465F7B6AB187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F45AA6B-926B-4009-8456-465F7B6AB187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F45AA6B-926B-4009-8456-465F7B6AB187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F45AA6B-926B-4009-8456-465F7B6AB187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{601C3170-C6D6-4EC0-AB26-BB48E6A2A421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{601C3170-C6D6-4EC0-AB26-BB48E6A2A421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{601C3170-C6D6-4EC0-AB26-BB48E6A2A421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{601C3170-C6D6-4EC0-AB26-BB48E6A2A421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ACAD8E4-896A-4EDF-9191-1D0BD94A3880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ACAD8E4-896A-4EDF-9191-1D0BD94A3880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ACAD8E4-896A-4EDF-9191-1D0BD94A3880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ACAD8E4-896A-4EDF-9191-1D0BD94A3880}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{896B293C-57BE-4201-89F8-18CA399DFF21} = {918B1C96-E940-43BE-9F80-EF3354F24AB1}
+		{BEAA853E-33C4-420A-B147-0AC121AC5B08} = {918B1C96-E940-43BE-9F80-EF3354F24AB1}
+		{5F0472CE-1337-42BC-A9F9-755C40184DB8} = {918B1C96-E940-43BE-9F80-EF3354F24AB1}
+		{B57C57DB-5E47-4216-ABB6-3C5ED9E52AA9} = {918B1C96-E940-43BE-9F80-EF3354F24AB1}
+		{5F45AA6B-926B-4009-8456-465F7B6AB187} = {28E3DADD-B86D-47A6-807A-D5BDE6CD5387}
+		{601C3170-C6D6-4EC0-AB26-BB48E6A2A421} = {28E3DADD-B86D-47A6-807A-D5BDE6CD5387}
+		{8ACAD8E4-896A-4EDF-9191-1D0BD94A3880} = {28E3DADD-B86D-47A6-807A-D5BDE6CD5387}
+	EndGlobalSection
+EndGlobal
