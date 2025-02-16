@@ -2,7 +2,7 @@
 
 namespace Visiotech.VineyardManagementService.Application.UseCases.Vineyards.ListAll
 {
-    public interface IListAllVineyardsUseCase : IUseCase<ListAllVineyardsInput>
+    public interface IListAllVineyardsOutputPort : IOutputPortStandard<ListAllVineyardsOutput>
     {
     }
 }

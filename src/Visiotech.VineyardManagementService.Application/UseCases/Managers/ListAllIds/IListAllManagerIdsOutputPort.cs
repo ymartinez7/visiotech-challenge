@@ -2,7 +2,7 @@
 
 namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllIds
 {
-    public interface IListAllManagerIdsIUseCase : IUseCase<ListAllManagerIdsInput>
+    public interface IListAllManagerIdsOutputPort : IOutputPortStandard<ListAllManagerIdsOutput>
     {
     }
 }

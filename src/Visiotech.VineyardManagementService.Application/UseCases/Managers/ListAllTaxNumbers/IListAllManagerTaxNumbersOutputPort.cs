@@ -2,7 +2,7 @@
 
 namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllTaxNumbers
 {
-    public class ListAllManagerTaxNumbersOutpuit : IUseCaseOutput
+    public interface IListAllManagerTaxNumbersOutputPort : IOutputPortStandard<ListAllManagerTaxNumbersOutput>
     {
     }
 }

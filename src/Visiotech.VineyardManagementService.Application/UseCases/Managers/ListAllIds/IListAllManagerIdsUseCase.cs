@@ -3,9 +3,9 @@
 namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllIds
 {
     /// <summary>
-    /// Use case input
+    /// Use case
     /// </summary>
-    public sealed  class ListAllManagerIdsInput : IUseCaseInput
+    public interface IListAllManagerIdsUseCase : IUseCase<ListAllManagerIdsInput>
     {
     }
 }

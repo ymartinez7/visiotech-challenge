@@ -2,7 +2,10 @@
 
 namespace Visiotech.VineyardManagementService.Application.UseCases.Vineyards.ListAll
 {
-    public class ListAllVineyardsInput : IUseCaseInput
+    /// <summary>
+    /// Use case input
+    /// </summary>
+    public sealed class ListAllVineyardsInput : IUseCaseInput
     {
     }
 }

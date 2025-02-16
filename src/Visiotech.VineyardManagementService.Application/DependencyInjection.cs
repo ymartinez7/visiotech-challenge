@@ -9,17 +9,19 @@ namespace Visiotech.VineyardManagementService.Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddUseCases(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services)
+        {
+            AddUseCases(services);
+            return services;
+        }
+
+        public static void AddUseCases(IServiceCollection services)
         {
             services.AddScoped<ICalculateTotalPlantedAreaByGrapeUseCase, CalculateTotalPlantedAreaByGrapeUseCase>();
-
             services.AddScoped<ICalculateTotalManagedAreaUseCase, CalculateTotalManagedAreaUseCase>();
-            services.AddScoped<IListAllManagerIdsIUseCase, ListAllManagerIdsIUseCase>();
+            services.AddScoped<IListAllManagerIdsUseCase, ListAllManagerIdsUseCase>();
             services.AddScoped<IListAllManagerTaxNumberUseCase, ListAllManagerTaxNumberUseCase>();
-
             services.AddScoped<IListAllVineyardsUseCase, ListAllVineyardsUseCase>();
-
-            return services;
         }
     }
 }
