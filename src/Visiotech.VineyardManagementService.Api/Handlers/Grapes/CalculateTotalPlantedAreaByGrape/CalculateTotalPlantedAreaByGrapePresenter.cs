@@ -15,13 +15,13 @@ namespace Visiotech.VineyardManagementService.Api.Handlers.Grapes.CalculateTotal
         {
             ArgumentNullException.ThrowIfNull(output);
             
-            if (!output.Areas.Any())
+            if (!output.CalculatedAreas.Any())
             {
                 ActionResult = new NoContentResult();
                 return;
             }
 
-            ActionResult = new OkObjectResult(output.Areas);
+            ActionResult = new OkObjectResult(output.CalculatedAreas);
         }
     }
 }

@@ -17,7 +17,7 @@
         private static bool ValidateYear(int year)
         {
             int currentYear = DateTime.UtcNow.Year;
-            return year < 1900 || year > currentYear;
+            return year >= 1900 || year <= currentYear;
         }
     }
 }
