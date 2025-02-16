@@ -4,9 +4,9 @@ using Visiotech.VineyardManagementService.Infrastructure.Data.Context;
 
 namespace Visiotech.VineyardManagementService.Infrastructure.Data.Repositories
 {
-    public class BaseRepository<T>(AppDbContext ccntext) : IBaseRepository<T> where T : Entity
+    public class BaseRepository<T>(AppDbContext context) : IBaseRepository<T> where T : Entity
     {
-        protected AppDbContext Context { get; init; } = ccntext;
+        protected AppDbContext Context { get; init; } = context;
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {

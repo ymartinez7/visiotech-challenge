@@ -6,22 +6,41 @@ using Visiotech.VineyardManagementService.Infrastructure.Data.Context;
 
 namespace Visiotech.VineyardManagementService.Infrastructure.Data.Repositories
 {
-    public class ManagerRepository(AppDbContext ccntext) : BaseRepository<Manager>(ccntext), IManagerRepository
+    public sealed class ManagerRepository(AppDbContext context) : BaseRepository<Manager>(context), IManagerRepository
     {
-        public async Task<IReadOnlyCollection<int>> ListAllIdsAsync()
+        public async Task<IReadOnlyCollection<int>> GetAllManagerIdsAsync()
         {
             return await Context.Set<Manager>()
                 .Select(m => m.Id)
-                .OrderByDescending(id => id)
+                .OrderBy(id => id)
                 .ToListAsync();
         }
 
-        public async Task<IReadOnlyCollection<TaxNumber>> ListAllTaxNumbersAsync(bool sorted = true)
+        public async Task<IReadOnlyCollection<TaxNumber>> GetAllManagerTaxNumbersAsync(bool sorted)
+        {
+            IQueryable<Manager> querable = Context.Set<Manager>();
+
+            if(sorted)
+            {
+                return await querable
+                    .OrderBy(m => m.Name)
+                    .Select(m => m.TaxNumber)
+                    .ToListAsync();
+            }
+
+            return await querable
+                 .Select(m => m.TaxNumber)
+                 .ToListAsync();
+        }
+
+        public async Task<Dictionary<string, int>> GetTotalManagementAreaByManagerAsync()
         {
             return await Context.Set<Manager>()
-                .OrderByDescending(m => m.Name)
-                .Select(m => m.TaxNumber)
-                .ToListAsync();
+                .Include(m => m.Parcels)
+                .ToDictionaryAsync(
+                    m => m.Name,
+                    m => m.Parcels.Sum(p => p.Area.Value)
+                );
         }
     }
 }

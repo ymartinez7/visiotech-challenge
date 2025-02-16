@@ -9,6 +9,14 @@ namespace Visiotech.VineyardManagementService.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<Grape> builder)
         {
             builder.HasKey(g => g.Id);
+
+            builder.Property(g => g.Id)
+                .ValueGeneratedOnAdd();
+
+            builder.HasData(
+                new Grape { Id = 1, Name = "Tempranillo" },
+                new Grape { Id = 2, Name = "Albariño" },
+                new Grape { Id = 3, Name = "Garnacha" });
         }
     }
 }
