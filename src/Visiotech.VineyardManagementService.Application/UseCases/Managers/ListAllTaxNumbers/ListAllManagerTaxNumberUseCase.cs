@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Visiotech.VineyardManagementService.Domain.Models;
 using Visiotech.VineyardManagementService.Domain.Repositories;
 using Visiotech.VineyardManagementService.Domain.ValueObjects;
 
@@ -45,7 +46,7 @@ namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.List
             }
         }
 
-        private void BuildOutput(IReadOnlyCollection<TaxNumber> managerTaxNumbers)
+        private void BuildOutput(IEnumerable<ManagerTaxNumberInfo> managerTaxNumbers)
         {
             var output = new ListAllManagerTaxNumbersOutput(managerTaxNumbers);
             _outputPort.StandardHandle(output);

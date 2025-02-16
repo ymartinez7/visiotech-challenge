@@ -1,36 +1,36 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Visiotech.VineyardManagementService.Domain.Entities;
+using Visiotech.VineyardManagementService.Domain.Models;
 using Visiotech.VineyardManagementService.Domain.Repositories;
-using Visiotech.VineyardManagementService.Domain.ValueObjects;
 using Visiotech.VineyardManagementService.Infrastructure.Data.Context;
 
 namespace Visiotech.VineyardManagementService.Infrastructure.Data.Repositories
 {
     public sealed class ManagerRepository(AppDbContext context) : BaseRepository<Manager>(context), IManagerRepository
     {
-        public async Task<IReadOnlyCollection<int>> GetAllManagerIdsAsync()
+        public async Task<IEnumerable<ManagerIdInfo>> GetAllManagerIdsAsync()
         {
             return await Context.Set<Manager>()
-                .Select(m => m.Id)
                 .OrderBy(id => id)
+                .Select(m => new ManagerIdInfo(m.Id, m.Name))
                 .ToListAsync();
         }
 
-        public async Task<IReadOnlyCollection<TaxNumber>> GetAllManagerTaxNumbersAsync(bool sorted)
+        public async Task<IEnumerable<ManagerTaxNumberInfo>> GetAllManagerTaxNumbersAsync(bool sorted)
         {
             IQueryable<Manager> querable = Context.Set<Manager>();
 
-            if(sorted)
+            if (sorted)
             {
                 return await querable
                     .OrderBy(m => m.Name)
-                    .Select(m => m.TaxNumber)
+                    .Select(m => new ManagerTaxNumberInfo(m.TaxNumber, m.Name))
                     .ToListAsync();
             }
 
             return await querable
-                 .Select(m => m.TaxNumber)
-                 .ToListAsync();
+                     .Select(m => new ManagerTaxNumberInfo(m.TaxNumber, m.Name))
+                     .ToListAsync();
         }
 
         public async Task<Dictionary<string, int>> GetTotalManagementAreaByManagerAsync()

@@ -1,21 +1,13 @@
 ﻿using Visiotech.VineyardManagementService.Application.Abstractions;
-using Visiotech.VineyardManagementService.Domain.ValueObjects;
+using Visiotech.VineyardManagementService.Domain.Models;
 
 namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllTaxNumbers
 {
     /// <summary>
     /// Use case output
     /// </summary>
-    public sealed class ListAllManagerTaxNumbersOutput : IUseCaseOutput
+    public sealed class ListAllManagerTaxNumbersOutput(IEnumerable<ManagerTaxNumberInfo> managerTaxNumbers) : IUseCaseOutput
     {
-        public ListAllManagerTaxNumbersOutput(IReadOnlyCollection<TaxNumber> managerTaxNumbers)
-        {
-            foreach (TaxNumber taxNumber in managerTaxNumbers)
-            {
-                ManagerTaxNumbersList.Add(taxNumber.Value);
-            }
-        }
-
-        public List<string> ManagerTaxNumbersList { get; private set; } = [];
+        public IEnumerable<ManagerTaxNumberInfo> ManagerTaxNumbersList { get; private set; } = managerTaxNumbers;
     }
 }

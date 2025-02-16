@@ -27,7 +27,7 @@ namespace Visiotech.VineyardManagementService.Api.Controllers
         /// </summary>
         /// <returns>List of ids</returns>
         [HttpGet("ids")]
-        [ProducesResponseType(typeof(IEnumerable<int>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<ListAllManagerIdsResponse>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> ListAllManagersIds()
         {
@@ -45,7 +45,7 @@ namespace Visiotech.VineyardManagementService.Api.Controllers
         /// <param name="sorted">Is sorted by name</param>
         /// <returns></returns>
         [HttpGet("taxnumbers")]
-        [ProducesResponseType(typeof(IEnumerable<string>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<ListAllManagerTaxNumberResponse>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> ListAllManagerTaxNumbers([FromQuery] bool sorted)
         {

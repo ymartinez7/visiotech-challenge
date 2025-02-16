@@ -21,7 +21,14 @@ namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllIds
                 return;
             }
 
-            ActionResult = new OkObjectResult(list.ManagerIdsList);
+            List<ListAllManagerIdsResponse> managerIds = [];
+
+            foreach (var managerId in list.ManagerIdsList)
+            {
+                managerIds.Add(new(managerId.Id, managerId.Name));
+            }
+
+            ActionResult = new OkObjectResult(managerIds);
         }
     }
 }

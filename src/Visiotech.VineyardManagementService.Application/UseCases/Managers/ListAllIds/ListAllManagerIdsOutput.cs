@@ -1,4 +1,5 @@
 ﻿using Visiotech.VineyardManagementService.Application.Abstractions;
+using Visiotech.VineyardManagementService.Domain.Models;
 
 namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllIds
 {
@@ -6,8 +7,8 @@ namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.List
     /// Use case output
     /// </summary>
     /// <param name="managerIds"></param>
-    public class ListAllManagerIdsOutput(IReadOnlyCollection<int> managerIds) : IUseCaseOutput
+    public sealed class ListAllManagerIdsOutput(IEnumerable<ManagerIdInfo> managerIds) : IUseCaseOutput
     {
-        public IReadOnlyCollection<int> ManagerIdsList { get; private set; } = managerIds;
+        public IEnumerable<ManagerIdInfo> ManagerIdsList { get; private set; } = managerIds;
     }
 }

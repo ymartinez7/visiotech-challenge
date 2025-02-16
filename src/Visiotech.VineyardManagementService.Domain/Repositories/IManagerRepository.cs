@@ -1,13 +1,13 @@
 ﻿using Visiotech.VineyardManagementService.Domain.Abstractions;
 using Visiotech.VineyardManagementService.Domain.Entities;
-using Visiotech.VineyardManagementService.Domain.ValueObjects;
+using Visiotech.VineyardManagementService.Domain.Models;
 
 namespace Visiotech.VineyardManagementService.Domain.Repositories
 {
     public interface IManagerRepository : IBaseRepository<Manager>
     {
-        Task<IReadOnlyCollection<int>> GetAllManagerIdsAsync();
-        Task<IReadOnlyCollection<TaxNumber>> GetAllManagerTaxNumbersAsync(bool sorted);
+        Task<IEnumerable<ManagerIdInfo>> GetAllManagerIdsAsync();
+        Task<IEnumerable<ManagerTaxNumberInfo>> GetAllManagerTaxNumbersAsync(bool sorted);
         Task<Dictionary<string, int>> GetTotalManagementAreaByManagerAsync();
     }
 }

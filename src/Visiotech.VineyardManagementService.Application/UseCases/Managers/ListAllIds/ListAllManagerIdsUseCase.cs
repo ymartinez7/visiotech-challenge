@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Visiotech.VineyardManagementService.Domain.Models;
 using Visiotech.VineyardManagementService.Domain.Repositories;
 
 namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllIds
@@ -44,7 +45,7 @@ namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.List
             }
         }
 
-        private void BuildOutput(IReadOnlyCollection<int> managerIds)
+        private void BuildOutput(IEnumerable<ManagerIdInfo> managerIds)
         {
             var output = new ListAllManagerIdsOutput(managerIds);
             _outputPort.StandardHandle(output);

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllIds;
 using Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllTaxNumbers;
 
 namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllTaxNumbers
@@ -21,7 +22,14 @@ namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllTaxNu
                 return;
             }
 
-            ActionResult = new OkObjectResult(list.ManagerTaxNumbersList);
+            List<ListAllManagerTaxNumberResponse> managerTaxNumbers = [];
+
+            foreach (var managerTaxNumber in list.ManagerTaxNumbersList)
+            {
+                managerTaxNumbers.Add(new(managerTaxNumber.TaxNumber.Value, managerTaxNumber.Name));
+            }
+
+            ActionResult = new OkObjectResult(managerTaxNumbers);
         }
     }
 }
