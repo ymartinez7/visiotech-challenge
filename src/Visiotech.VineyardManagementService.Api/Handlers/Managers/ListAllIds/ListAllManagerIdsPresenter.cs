@@ -3,6 +3,9 @@ using Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllI
 
 namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllIds
 {
+    /// <summary>
+    /// Presenter
+    /// </summary>
     public sealed class ListAllManagerIdsPresenter 
         : IWebApiPresenter, IListAllManagerIdsOutputPort
     {

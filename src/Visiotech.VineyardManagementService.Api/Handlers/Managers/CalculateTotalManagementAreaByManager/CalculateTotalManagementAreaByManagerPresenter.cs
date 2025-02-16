@@ -3,6 +3,9 @@ using Visiotech.VineyardManagementService.Application.UseCases.Managers.Calculat
 
 namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.CalculateTotalManagementAreaByManager
 {
+    /// <summary>
+    /// Presenter
+    /// </summary>
     public sealed class CalculateTotalManagementAreaByManagerPresenter 
         : IWebApiPresenter, ICalculateTotalManagedAreaOutputPort
     {

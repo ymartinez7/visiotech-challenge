@@ -3,6 +3,9 @@ using Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllT
 
 namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllTaxNumbers
 {
+    /// <summary>
+    /// Presenter
+    /// </summary>
     public sealed class ListAllManagerTaxNumberPresenter 
         : IWebApiPresenter, IListAllManagerTaxNumbersOutputPort
     {

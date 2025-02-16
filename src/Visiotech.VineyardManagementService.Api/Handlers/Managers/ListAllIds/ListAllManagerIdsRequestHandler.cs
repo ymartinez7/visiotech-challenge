@@ -3,6 +3,11 @@ using Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllI
 
 namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllIds
 {
+    /// <summary>
+    /// Handler of ListAllManagerIdsRequest
+    /// </summary>
+    /// <param name="useCase">Use case</param>
+    /// <param name="presenter">Presenter</param>
     public sealed class ListAllManagerIdsRequestHandler(
         IListAllManagerIdsIUseCase useCase,
         ListAllManagerIdsPresenter presenter) 
@@ -11,6 +16,12 @@ namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllIds
         private readonly IListAllManagerIdsIUseCase _useCase = useCase;
         private readonly ListAllManagerIdsPresenter _presenter = presenter;
 
+        /// <summary>
+        /// Executes the corresponding use case 
+        /// </summary>
+        /// <param name="request">Input</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Presenter</returns>
         public async Task<IWebApiPresenter> Handle(
             ListAllManagerIdsRequest request, 
             CancellationToken cancellationToken)

@@ -3,6 +3,11 @@ using Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllT
 
 namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllTaxNumbers
 {
+    /// <summary>
+    /// Handler of ListAllManagerTaxNumberRequest
+    /// </summary>
+    /// <param name="useCase">Use case</param>
+    /// <param name="presenter">Presenter</param>
     public sealed class ListAllManagerTaxNumberRequestHandler(
         IListAllManagerTaxNumberUseCase useCase,
         ListAllManagerTaxNumberPresenter presenter) 
@@ -11,6 +16,12 @@ namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllTaxNu
         private readonly IListAllManagerTaxNumberUseCase _useCase = useCase;
         private readonly ListAllManagerTaxNumberPresenter _presenter = presenter;
 
+        /// <summary>
+        /// Executes the corresponding use case 
+        /// </summary>
+        /// <param name="request">Input</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Presenter</returns>
         public async Task<IWebApiPresenter> Handle(
             ListAllManagerTaxNumberRequest request, 
             CancellationToken cancellationToken)

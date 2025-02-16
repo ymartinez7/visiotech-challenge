@@ -3,6 +3,9 @@ using Visiotech.VineyardManagementService.Application.UseCases.Grapes.CalculateT
 
 namespace Visiotech.VineyardManagementService.Api.Handlers.Grapes.CalculateTotalPlantedAreaByGrape
 {
+    /// <summary>
+    /// Presenter
+    /// </summary>
     public sealed class CalculateTotalPlantedAreaByGrapePresenter 
         : IWebApiPresenter, ICalculateTotalPlantedAreaByGrapeOutputPort
     {
