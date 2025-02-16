@@ -31,19 +31,20 @@ Si bien la implementación de la solución del desafío planteado la pude haber hec
 
 - **Versión de .NET**: La solución se construyó usando la versión 9 de .NET, especificamente la versión **9.0.100**. Se puede verificar esta información en el fichero **global.json** que contiene la solución.
 - **Principios SOLID**: Se intentó seguir lo mejor posible los principios y buenas prácticas de desarrollo, tal como lo estipulan los princpios SOLID.
-- **Arquitevtura**: Se implementó para la solución una arquitectura hexagonal (puertos y adaptadores), compuesta por 4 capas (Domino, Application, Infrastructure y Api). Las capas Domino y Application son agnósticas de la infraestructura, presentación y de cualquier otra librería externa para evitar el acoplamiento fuerte o dependencias innecesarias.
+- **Arquitectura**: Se implementó para la solución una arquitectura hexagonal (puertos y adaptadores), compuesta por 4 capas (Domino, Application, Infrastructure y Api). Las capas Domino y Application son agnósticas de la infraestructura, presentación y de cualquier otra librería externa para evitar el acoplamiento fuerte o dependencias innecesarias.
 - **Domain-Driven Design (DDD)**: Se aplicó en la solución algunos conceptos de DDD tales como value objects, entities, repositories, etc.
-- **Mediator Pattern**: Se implementó en el proyecto del API el patrón mediador usando la librería MediatR, usando request y request handlers para segregar responsabilidades y organiozar de una mejor manera el código.
+- **Mediator Pattern**: Se implementó en el proyecto del API el patrón mediador usando la librería MediatR, usando request y request handlers para segregar responsabilidades y organizar de una mejor manera el código.
 - **Repository Pattern**: Se implementó el patrón de repositorio. La capa Domain solo expone las abstracciones (interfaces) y sus implementaciones se realizan en la capa de insfrastructure, usando EF Core para el acceso a los datos en una base de datos Sql Server.
-- **Contenerización**: Ambas, Api y base de datos están contenerizados usando imagenes de docker y docker-compose para su ejecución simultánea.
-- **Testing**: Para el testing se usaron librería tales como xUnit, MOQ, FluentAssertions, Testcontainers y Microsoft.AspNetCore.Mvc.Testing.
+- **Contenerización**: Ambas, Api y base de datos están contenerizados usando imágenes de docker y docker-compose para su ejecución simultánea.
+- **Testing**: Para el testing, se usaron librerías tales como xUnit, MOQ, FluentAssertions, Testcontainers y Microsoft.AspNetCore.Mvc.Testing.
 
 ## Ejecución de la aplicación.
 
-Para ejecutar la aplicación correctamente, se debe seleccionar el proyecto docker-compose como proyecto de inicio, para poder ejecutar la aplicación con sus deopendencias base de datos sql server.
+Para ejecutar la aplicación correctamente, se debe seleccionar desde visual studio el proyecto **docker-compose** como proyecto de inicio, para poder ejecutar la aplicación con sus dependencias, como lo es la base de datos sql server.
 
-Luego de ejecutar la aplicación de esa manera, estará el swagger disponible en la siguiente ruta: <https://localhost:8081/swagger/index.html>
+Luego de ejecutar la aplicación de esta manera, estará el swagger disponible para probarlo en la siguiente ruta: <https://localhost:8081/swagger/index.html>
 
+**docker-compose.yml**
 ```yml
 services:
 
@@ -52,6 +53,11 @@ services:
     build:
       context: .
       dockerfile: src/Visiotech.VineyardManagementService.Api/Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - ASPNETCORE_URLS=https://+:8081
+      - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
       - sql-server
 
@@ -137,7 +143,8 @@ GET /managers/ids
 ### 3. Listar tax numbers de los gerentes ordenados alfabéticamente por nombre 
 **GET /managers/taxnumbers?sorted=true**
 
-Con orden
+**Datos ordenados por nombre del gerente**
+
 **Request**
 ```
 GET /managers/taxnumbers?sorted=true
@@ -161,7 +168,9 @@ GET /managers/taxnumbers?sorted=true
 ]
 ```
 
-Sin orden
+**Datos sin orden**
+ 
+
 **Request**
 ```
 GET /managers/taxnumbers?sorted=false
@@ -384,8 +393,8 @@ namespace Visiotech.VineyardManagementService.Application.UnitTests.UseCases.Man
 
 ```
 
-### Prueba de inregración
-Proyecto de tests unitarios: **Visiotech.VineyardManagementService.Api.IntegrationTests**
+### Prueba de integración
+Proyecto de tests de integración: **Visiotech.VineyardManagementService.Api.IntegrationTests**
 
 
 Pruebas de integración que validan los endpoints del controlador de managers.
