@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Moq;
 using Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllTaxNumbers;
+using Visiotech.VineyardManagementService.Domain.Models;
 using Visiotech.VineyardManagementService.Domain.Repositories;
 using Visiotech.VineyardManagementService.Domain.ValueObjects;
 
@@ -33,10 +34,10 @@ namespace Visiotech.VineyardManagementService.Application.UnitTests.UseCases.Man
             // Arrange
             var input = new ListAllManagerTaxNumbersInput(sorted);
 
-            var managerTaxNumbers = new List<TaxNumber> { 
-                new TaxNumber("101"), 
-                new TaxNumber("202"), 
-                new TaxNumber("303") 
+            var managerTaxNumbers = new List<ManagerTaxNumberInfo> { 
+                new(new TaxNumber("101"), "Manager 1"), 
+                new(new TaxNumber("202"), "Manager 2"), 
+                new(new TaxNumber("303"), "Manager 3")
             };
 
             _managerRepositoryMock

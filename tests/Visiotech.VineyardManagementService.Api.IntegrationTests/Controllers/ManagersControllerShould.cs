@@ -3,6 +3,8 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using Visiotech.VineyardManagementService.Api.Handlers.Managers.CalculateTotalManagementAreaByManager;
+using Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllIds;
+using Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllTaxNumbers;
 using Visiotech.VineyardManagementService.Api.IntegrationTests.Infrastructure;
 
 namespace Visiotech.VineyardManagementService.Api.IntegrationTests.Controllers
@@ -17,7 +19,7 @@ namespace Visiotech.VineyardManagementService.Api.IntegrationTests.Controllers
 
             // Assert
             var jsonString = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<List<int>>(jsonString);
+            var result = JsonSerializer.Deserialize<IEnumerable<ListAllManagerIdsResponse>>(jsonString);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             result.Should().NotBeNull().And.HaveCount(3);
@@ -33,7 +35,7 @@ namespace Visiotech.VineyardManagementService.Api.IntegrationTests.Controllers
 
             // Assert
             var jsonString = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<List<string>>(jsonString);
+            var result = JsonSerializer.Deserialize<List<ListAllManagerTaxNumberResponse>>(jsonString);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             result.Should().NotBeNull().And.HaveCount(3);

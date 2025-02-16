@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Moq;
 using Visiotech.VineyardManagementService.Application.UseCases.Managers.ListAllIds;
+using Visiotech.VineyardManagementService.Domain.Models;
 using Visiotech.VineyardManagementService.Domain.Repositories;
 
 namespace Visiotech.VineyardManagementService.Application.UnitTests.UseCases.Managers
@@ -29,7 +30,11 @@ namespace Visiotech.VineyardManagementService.Application.UnitTests.UseCases.Man
         {
             // Arrange
             var input = new ListAllManagerIdsInput();
-            var managerIds = new List<int> { 101, 202, 303 };
+            var managerIds = new List<ManagerIdInfo> {
+                new(101, "Manager 1"),
+                new(202, "Manager 2"), 
+                new(303, "Manager 3") 
+            };
 
             _managerRepositoryMock
                 .Setup(r => r.GetAllManagerIdsAsync())

@@ -14,7 +14,7 @@ namespace Visiotech.VineyardManagementService.Api.IntegrationTests.Infrastructur
            .WithImage("mcr.microsoft.com/mssql/server:latest")
            .WithEnvironment("ACCEPT_EULA", "Y")
            .WithEnvironment("MSSQL_SA_PASSWORD ", "Password123!")
-           .WithPortBinding(1433, 1434)
+           .WithPortBinding(1434, 1434)
            .Build();
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)
