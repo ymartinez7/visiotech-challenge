@@ -30,7 +30,7 @@ namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.List
                 _logger.LogInformation("Executing use case {UseCase}",
                     nameof(ListAllManagerIdsUseCase));
 
-                var managerIds = await _managerRepository.ListAllIdsAsync();
+                var managerIds = await _managerRepository.GetAllManagerIdsAsync();
                 BuildOutput(managerIds);
             }
             catch (Exception ex)

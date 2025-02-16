@@ -30,7 +30,7 @@ namespace Visiotech.VineyardManagementService.Application.UseCases.Grapes.Calcul
                 _logger.LogInformation("Executing use case {UseCase}", 
                     nameof(CalculateTotalPlantedAreaByGrapeUseCase));
 
-                var calculatedAreas = await _grapeRepository.GetTotalAreaByGrapeAsync();
+                var calculatedAreas = await _grapeRepository.GetTotalPlantedAreaByGrapeAsync();
                 BuildOutput(calculatedAreas);
             }
             catch (Exception ex)

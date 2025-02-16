@@ -31,7 +31,7 @@ namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.Calc
                 _logger.LogInformation("Executing use case {UseCase}",
                     nameof(CalculateTotalManagedAreaUseCase));
 
-                var calculatedAreas = await _managerRepository.GetTotalAreaByManagerAsync();
+                var calculatedAreas = await _managerRepository.GetTotalManagementAreaByManagerAsync();
                 BuildOutput(calculatedAreas);
             }
             catch (Exception ex)

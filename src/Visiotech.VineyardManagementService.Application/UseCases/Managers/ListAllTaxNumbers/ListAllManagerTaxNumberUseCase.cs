@@ -31,7 +31,7 @@ namespace Visiotech.VineyardManagementService.Application.UseCases.Managers.List
                 _logger.LogInformation("Executing use case {UseCase}",
                     nameof(ListAllManagerTaxNumberUseCase));
 
-                var managerTaxNumbers = await _managerRepository.ListAllTaxNumbersAsync(input.Sorted);
+                var managerTaxNumbers = await _managerRepository.GetAllManagerTaxNumbersAsync(input.Sorted);
                 BuildOutput(managerTaxNumbers);
             }
             catch (Exception ex)
