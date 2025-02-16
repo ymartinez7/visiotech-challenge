@@ -4,11 +4,12 @@ namespace Visiotech.VineyardManagementService.Domain.Entities
 {
     public sealed class Grape : Entity
     {
-        private Grape()
+        public Grape()
         {
         }
 
-        public string Name { get; private set; }
-        public Parcel Parcel { get; private set; }
+        public string Name { get; set; }
+
+        public ICollection<Parcel> Parcels { get; set; } = [];
     }
 }

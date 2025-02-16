@@ -6,7 +6,8 @@ namespace Visiotech.VineyardManagementService.Domain.Repositories
 {
     public interface IManagerRepository : IBaseRepository<Manager>
     {
-        Task<IReadOnlyCollection<int>> ListAllIdsAsync();
-        Task<IReadOnlyCollection<TaxNumber>> ListAllTaxNumbersAsync(bool sorted = true);
+        Task<IReadOnlyCollection<int>> GetAllManagerIdsAsync();
+        Task<IReadOnlyCollection<TaxNumber>> GetAllManagerTaxNumbersAsync(bool sorted);
+        Task<Dictionary<string, int>> GetTotalManagementAreaByManagerAsync();
     }
 }

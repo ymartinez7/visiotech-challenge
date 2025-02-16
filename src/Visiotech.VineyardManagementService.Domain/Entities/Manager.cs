@@ -5,12 +5,12 @@ namespace Visiotech.VineyardManagementService.Domain.Entities
 {
     public sealed class Manager : Entity
     {
-        private Manager()
+        public Manager()
         { 
         }
 
-        public TaxNumber TaxNumber { get; private set; }
-        public string Name { get; private set; }
-        public Parcel Parcel { get; private set; }
+        public TaxNumber TaxNumber { get; set; }
+        public string Name { get; set; }
+        public ICollection<Parcel> Parcels { get; set; } = [];
     }
 }

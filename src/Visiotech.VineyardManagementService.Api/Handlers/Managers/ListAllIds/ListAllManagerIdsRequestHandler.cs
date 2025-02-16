@@ -9,11 +9,11 @@ namespace Visiotech.VineyardManagementService.Api.Handlers.Managers.ListAllIds
     /// <param name="useCase">Use case</param>
     /// <param name="presenter">Presenter</param>
     public sealed class ListAllManagerIdsRequestHandler(
-        IListAllManagerIdsIUseCase useCase,
+        IListAllManagerIdsUseCase useCase,
         ListAllManagerIdsPresenter presenter) 
         : IRequestHandler<ListAllManagerIdsRequest, IWebApiPresenter>
     {
-        private readonly IListAllManagerIdsIUseCase _useCase = useCase;
+        private readonly IListAllManagerIdsUseCase _useCase = useCase;
         private readonly ListAllManagerIdsPresenter _presenter = presenter;
 
         /// <summary>

@@ -5,5 +5,6 @@ namespace Visiotech.VineyardManagementService.Domain.Repositories
 {
     public interface IGrapeRepository : IBaseRepository<Grape>
     {
+        Task<Dictionary<string, int>> GetTotalPlantedAreaByGrapeAsync();
     }
 }
